@@ -1,0 +1,6 @@
+Ex 1. Explain the role of funct3 and funct7 fields of the R-format instructions?
+funct3 and funct7 fields defines the specific operation in addition to the opcode.
+
+Ex 2. Explain the differences between the S and SB instruction formats.
+Store instructions transfer a value between the registers and memory. The effective address is obtained by adding register rs1 to the sign-extended 12-bit offset. Store copies the value in register rs2 into memory.
+Branch instructions use the B-type format. The 12-bit B-immediate encodes signed offsets in multiples of 2 bytes. Branch instructions compare two registers rs1 and rs2, and performs the instruction as specified in the funct3 field.
