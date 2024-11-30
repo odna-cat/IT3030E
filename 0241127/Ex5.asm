@@ -48,7 +48,7 @@ avg:
 	
 	fcvt.s.w f0, t0, dyn	# float(sum);
 	fcvt.s.w f1, t1, dyn	# float(2);
-	fcvt.s.w f2, t2, dyn	# float(0); for some godforsaken reason
+	fcvt.s.w f2, t2, dyn	# float(0)
 	
 	fdiv.s f3, f0, f1, dyn
 	li a7, 4

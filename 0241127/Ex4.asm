@@ -2,6 +2,7 @@
 # - Read an integer N from console.
 # - Then read N integers from console.
 # - Find and print the values of the smallest and largest number from the N integers that have been read.
+.globl main
 
 .data
 arr:	.space 400 # assumes array has max cap of 100 integers
@@ -9,7 +10,7 @@ max:	.space 4
 min:	.space 4
 
 maxstr:	.asciz "The largest number: "
-minstr:	.asciz "\nThe smallest number: "
+minstr:	.asciz "The smallest number: "
 .text
 main:
 	li a7, 5		# int n;
@@ -24,7 +25,7 @@ main:
 generate_arr:
 	beq t1, t0, start_max	# int inp;
 	ecall			# scanf("%d", inp);
-	slli t4, t1, 4		# offset
+	slli t4, t1, 2		# offset
 	add t4, t3, t4		# current memory address
 	sw a0, 0(t4)		# arr[i] = inp;
 	addi t1, t1, 1		# i++
@@ -64,11 +65,15 @@ end:
 	li a7, 1
 	mv a0, a1
 	ecall
+	li a7, 11
+	li a0, 10
+	ecall
 	li a7, 4
 	la a0, minstr
 	ecall
 	li a7, 1
 	mv a0, a2
 	ecall
+	
 	li a7, 10
 	ecall
